@@ -12,6 +12,9 @@ api.get("/ping", (req, res) => {
 })
 
 
+api.post("/scan", controler.scan)
+
+
 
 
 module.exports = api
