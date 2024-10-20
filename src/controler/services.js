@@ -44,6 +44,7 @@ class Services {
 
 
     async executeScan(kverify, Cookie, start = 2000, end = 11000) {
+        globalThis.isScanning = true
         try {
             globalThis.new_module = []
             for (let i = start; i <= end; i++) {
@@ -53,7 +54,7 @@ class Services {
             console.log("err when execute scan : ", error);
 
         }
-
+        globalThis.isScanning = false;
     }
 
 
