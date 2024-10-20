@@ -42,9 +42,9 @@ class Controler {
                 message: "scanning!!!!"
             })
 
-            await services.executeScan(kverify, Cookie, 2000, 2100)
+            await services.executeScan(kverify, Cookie, 2000, 11000)
 
-            globalThis.max_age_data = Date.now() + 120 * 1000
+            globalThis.max_age_data = Date.now() + 180 * 1000
 
 
         } catch (error) {
