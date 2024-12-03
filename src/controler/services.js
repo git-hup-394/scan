@@ -6,7 +6,7 @@ class Services {
 
 
     async scan(kverify, Cookie, i) {
-        console.log(i);
+        console.log("id : ", i);
 
         try {
             const url = `https://sv.haui.edu.vn/ajax/register/action.htm?cmd=classbymodulesid&v=${kverify}`;
@@ -25,11 +25,14 @@ class Services {
             await axios.post(url, payload, config)
                 .then(response => {
                     let data = response?.data?.data
+
                     if (data?.length) {
-                        if (!globalThis.module_ids.include(i)) {
+
+                        if (!globalThis.module_ids.includes(i)) {
                             globalThis.new_module.push({ module_name: data[0].ModulesName, module_id: i, module_code: data[0].ModulesCode })
                         }
                     }
+
 
                 })
                 .catch(error => {
@@ -43,12 +46,13 @@ class Services {
     }
 
 
-    async executeScan(kverify, Cookie, start = 2000, end = 11000) {
+    async executeScan(kverify, Cookie, start = 2000, end = 13000) {
         globalThis.isScanning = true
         try {
             globalThis.new_module = []
             for (let i = start; i <= end; i++) {
                 await this.scan(kverify, Cookie, i)
+                // console.log("globalThis.new_module  scanning : ", globalThis.new_module);
             }
         } catch (error) {
             console.log("err when execute scan : ", error);

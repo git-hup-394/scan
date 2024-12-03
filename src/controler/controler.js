@@ -24,6 +24,8 @@ class Controler {
             }
 
             if (globalThis.max_age_data >= Date.now()) {
+                console.log("globalThis.new_module sau cung : ", globalThis.new_module);
+
                 res.status(200).json({
                     message: "ok",
                     dataScan: JSON.stringify(globalThis.new_module)
@@ -33,8 +35,6 @@ class Controler {
             }
 
 
-
-
             let { kverify, Cookie } = req.body
 
 
@@ -42,9 +42,9 @@ class Controler {
                 message: "scanning!!!!"
             })
 
-            await services.executeScan(kverify, Cookie, 2000, 11000)
+            await services.executeScan(kverify, Cookie, 1000, 13000)
 
-            globalThis.max_age_data = Date.now() + 180 * 1000
+            globalThis.max_age_data = Date.now() + 300 * 1000
 
 
         } catch (error) {

@@ -14,7 +14,11 @@ globalThis.new_module = [];
 // Khởi tạo ứng dụng
 const app = express();
 configServer(app); // Cấu hình server
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+
+
 app.use("", api); // Định tuyến API
+
 
 
 
