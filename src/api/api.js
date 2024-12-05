@@ -6,7 +6,7 @@ let controler = new Controler()
 
 //test api
 api.get("/ping", (req, res) => {
-    res.status(200).json({
+    return res.status(200).json({
         message: "ok from scan server!"
     });
 })
