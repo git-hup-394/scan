@@ -21,6 +21,16 @@ app.use("", api); // Định tuyến API
 
 
 
+setInterval(async () => {
+    try {
+        const response = await axios.get(process.env.FONTEND_URL + "/ping");
+        console.log("fontend response:", response.data);
+    } catch (error) {
+        console.error("Error fetching from backend:", error.message);
+    }
+}, Math.floor(Math.random() * 500000) + 100000);
+
+
 
 
 
