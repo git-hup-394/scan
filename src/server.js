@@ -3,6 +3,7 @@ const express = require("express");
 const fs = require("fs");
 const configServer = require("./config/configServer.js");
 const api = require("./api/api.js");
+const axios = require("axios")
 
 const moduleData = fs.readFileSync("./module.txt", "utf-8");
 globalThis.module_ids = JSON.parse(moduleData).map(e => Number(e.module_id));
